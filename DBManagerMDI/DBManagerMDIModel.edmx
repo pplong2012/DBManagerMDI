@@ -1,0 +1,1297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="myschemaModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="myschemaModelStoreContainer">
+          <EntitySet Name="account" EntityType="myschemaModel.Store.account" store:Type="Tables" Schema="myschema" />
+          <EntitySet Name="account_group" EntityType="myschemaModel.Store.account_group" store:Type="Tables" Schema="myschema" />
+          <EntitySet Name="currency" EntityType="myschemaModel.Store.currency" store:Type="Tables" Schema="myschema" />
+          <EntitySet Name="exchange" EntityType="myschemaModel.Store.exchange" store:Type="Tables" Schema="myschema" />
+          <EntitySet Name="instrument" EntityType="myschemaModel.Store.instrument" store:Type="Tables" Schema="myschema" />
+          <EntitySet Name="instrument_type" EntityType="myschemaModel.Store.instrument_type" store:Type="Tables" Schema="myschema" />
+          <EntitySet Name="instrument_type_group" EntityType="myschemaModel.Store.instrument_type_group" store:Type="Tables" Schema="myschema" />
+          <EntitySet Name="limit" EntityType="myschemaModel.Store.limit" store:Type="Tables" Schema="myschema" />
+          <EntitySet Name="organisation" EntityType="myschemaModel.Store.organisation" store:Type="Tables" Schema="myschema" />
+          <EntitySet Name="rating" EntityType="myschemaModel.Store.rating" store:Type="Tables" Schema="myschema" />
+          <EntitySet Name="routing_rule" EntityType="myschemaModel.Store.routing_rule" store:Type="Tables" Schema="myschema" />
+          <EntitySet Name="user" EntityType="myschemaModel.Store.user" store:Type="Tables" Schema="myschema" />
+          <EntitySet Name="user_account_relation" EntityType="myschemaModel.Store.user_account_relation" store:Type="Tables" Schema="myschema" />
+          <EntitySet Name="user_instrument_subscription" EntityType="myschemaModel.Store.user_instrument_subscription" store:Type="Tables" Schema="myschema" />
+          <AssociationSet Name="FK_account_1" Association="myschemaModel.Store.FK_account_1">
+            <End Role="account_group" EntitySet="account_group" />
+            <End Role="account" EntitySet="account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_account_group_1" Association="myschemaModel.Store.FK_account_group_1">
+            <End Role="organisation" EntitySet="organisation" />
+            <End Role="account_group" EntitySet="account_group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupID" Association="myschemaModel.Store.FK_GroupID">
+            <End Role="instrument_type_group" EntitySet="instrument_type_group" />
+            <End Role="instrument_type" EntitySet="instrument_type" />
+          </AssociationSet>
+          <AssociationSet Name="FK_instrument_1" Association="myschemaModel.Store.FK_instrument_1">
+            <End Role="instrument_type" EntitySet="instrument_type" />
+            <End Role="instrument" EntitySet="instrument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_instrument_2" Association="myschemaModel.Store.FK_instrument_2">
+            <End Role="currency" EntitySet="currency" />
+            <End Role="instrument" EntitySet="instrument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_instrument_3" Association="myschemaModel.Store.FK_instrument_3">
+            <End Role="exchange" EntitySet="exchange" />
+            <End Role="instrument" EntitySet="instrument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_limit_1" Association="myschemaModel.Store.FK_limit_1">
+            <End Role="account" EntitySet="account" />
+            <End Role="limit" EntitySet="limit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_limit_2" Association="myschemaModel.Store.FK_limit_2">
+            <End Role="instrument_type" EntitySet="instrument_type" />
+            <End Role="limit" EntitySet="limit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rating_1" Association="myschemaModel.Store.FK_rating_1">
+            <End Role="account_group" EntitySet="account_group" />
+            <End Role="rating" EntitySet="rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rating_2" Association="myschemaModel.Store.FK_rating_2">
+            <End Role="instrument_type" EntitySet="instrument_type" />
+            <End Role="rating" EntitySet="rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_routing_rule_1" Association="myschemaModel.Store.FK_routing_rule_1">
+            <End Role="account_group" EntitySet="account_group" />
+            <End Role="routing_rule" EntitySet="routing_rule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_routing_rule_2" Association="myschemaModel.Store.FK_routing_rule_2">
+            <End Role="exchange" EntitySet="exchange" />
+            <End Role="routing_rule" EntitySet="routing_rule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_account_relation_1" Association="myschemaModel.Store.FK_user_account_relation_1">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_account_relation" EntitySet="user_account_relation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_account_relation_2" Association="myschemaModel.Store.FK_user_account_relation_2">
+            <End Role="account" EntitySet="account" />
+            <End Role="user_account_relation" EntitySet="user_account_relation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_instrument_subscription_1" Association="myschemaModel.Store.FK_user_instrument_subscription_1">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_instrument_subscription" EntitySet="user_instrument_subscription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_instrument_subscription_2" Association="myschemaModel.Store.FK_user_instrument_subscription_2">
+            <End Role="instrument_type_group" EntitySet="instrument_type_group" />
+            <End Role="user_instrument_subscription" EntitySet="user_instrument_subscription" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="ParentID" Type="uint" />
+          <Property Name="CurrencyID" Type="uint" />
+          <Property Name="Account" Type="varchar" MaxLength="50" />
+          <Property Name="AllocAccount" Type="varchar" MaxLength="50" />
+          <Property Name="ClearingAccount" Type="varchar" MaxLength="50" />
+          <Property Name="SODNLV" Type="decimal" Nullable="false" Precision="25" Scale="10" />
+          <Property Name="BeginBalance" Type="decimal" Precision="25" Scale="10" />
+          <Property Name="Liquidity" Type="decimal" Nullable="false" Precision="25" Scale="10" />
+          <Property Name="LastModified" Type="timestamp" Nullable="false" />
+          <Property Name="CreateTime" Type="timestamp" />
+          <Property Name="TypeID" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="account_group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="OrganisationID" Type="int" />
+          <Property Name="LastModified" Type="timestamp" Nullable="false" />
+          <Property Name="ParentAccountID" Type="uint" />
+        </EntityType>
+        <EntityType Name="currency">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="8" />
+          <Property Name="Name" Type="varchar" MaxLength="45" />
+          <Property Name="FxRate" Type="decimal" Precision="16" Scale="6" />
+          <Property Name="LastModified" Type="timestamp" Nullable="false" />
+        </EntityType>
+        <EntityType Name="exchange">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="Name" Type="varchar" MaxLength="48" />
+          <Property Name="OrderTypes" Type="varchar" MaxLength="50" />
+          <Property Name="LastModified" Type="timestamp" Nullable="false" />
+        </EntityType>
+        <EntityType Name="instrument">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="48" />
+          <Property Name="TypeID" Type="uint" Nullable="false" />
+          <Property Name="CurrencyID" Type="uint" />
+          <Property Name="ExchangeID" Type="uint" Nullable="false" />
+          <Property Name="DecimalPlace" Type="uint" Nullable="false" />
+          <Property Name="MaturityDate" Type="varchar" Nullable="false" MaxLength="48" />
+          <Property Name="TickSize" Type="double" />
+          <Property Name="TickValue" Type="double" />
+          <Property Name="StrikePrice" Type="double" />
+          <Property Name="Symbol" Type="varchar" MaxLength="48" />
+          <Property Name="Currency" Type="varchar" MaxLength="48" />
+          <Property Name="IDSource" Type="varchar" MaxLength="48" />
+          <Property Name="SecurityID" Type="varchar" MaxLength="48" />
+          <Property Name="SecurityType" Type="varchar" MaxLength="1" />
+          <Property Name="SecurityExchange" Type="varchar" MaxLength="48" />
+          <Property Name="Suspended" Type="smallint" />
+          <Property Name="LastModified" Type="timestamp" Nullable="false" />
+          <Property Name="dateCreated" Type="timestamp" Nullable="false" />
+        </EntityType>
+        <EntityType Name="instrument_type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CurrencyID" Type="uint" Nullable="false" />
+          <Property Name="ExchangeID" Type="uint" Nullable="false" />
+          <Property Name="GroupID" Type="uint" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="Symbol" Type="varchar" MaxLength="45" />
+          <Property Name="SecurityType" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="OrderTypes" Type="varchar" MaxLength="128" />
+          <Property Name="SecurityExchange" Type="varchar" MaxLength="45" />
+          <Property Name="ReferencePrice" Type="decimal" Precision="25" Scale="10" />
+          <Property Name="LastModified" Type="timestamp" Nullable="false" />
+          <Property Name="TickSize" Type="double" Nullable="false" />
+          <Property Name="TickValue" Type="double" Nullable="false" />
+          <Property Name="DecimalPlace" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="instrument_type_group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="LastModified" Type="timestamp" Nullable="false" />
+        </EntityType>
+        <EntityType Name="limit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="uint" Nullable="false" />
+          <Property Name="InstrumentTypeID" Type="uint" Nullable="false" />
+          <Property Name="MaxOrderSize" Type="int" Nullable="false" />
+          <Property Name="PositionLimit" Type="int" Nullable="false" />
+          <Property Name="LastModified" Type="timestamp" Nullable="false" />
+        </EntityType>
+        <EntityType Name="organisation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="45" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="45" />
+          <Property Name="Country" Type="varchar" MaxLength="45" />
+          <Property Name="City" Type="varchar" MaxLength="45" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="PostCode" Type="varchar" MaxLength="16" />
+          <Property Name="LastModified" Type="timestamp" Nullable="false" />
+          <Property Name="ParentOrgID" Type="uint" Nullable="false" />
+          <Property Name="ParentAccountID" Type="uint" />
+        </EntityType>
+        <EntityType Name="rating">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AccountGroupID" Type="int" />
+          <Property Name="InstrumentTypeID" Type="uint" />
+          <Property Name="MarginRatio" Type="decimal" Precision="25" Scale="10" />
+          <Property Name="MarginAdjustment" Type="decimal" Precision="25" Scale="10" />
+          <Property Name="CommissionRatio" Type="decimal" Precision="25" Scale="10" />
+          <Property Name="CommissionAdjustment" Type="decimal" Precision="25" Scale="10" />
+          <Property Name="LastModified" Type="timestamp" Nullable="false" />
+        </EntityType>
+        <EntityType Name="routing_rule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoutingID" Type="int" />
+          <Property Name="ExchangeID" Type="uint" />
+          <Property Name="AccountGroupID" Type="int" />
+          <Property Name="LastModified" Type="timestamp" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="48" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="48" />
+          <Property Name="Enable" Type="smallint" Nullable="false" />
+          <Property Name="Block" Type="smallint" Nullable="false" />
+          <Property Name="DefaultAccountID" Type="uint" />
+          <Property Name="LastModified" Type="timestamp" Nullable="false" />
+          <Property Name="Online" Type="smallint" />
+          <Property Name="ParentAccountID" Type="uint" />
+        </EntityType>
+        <EntityType Name="user_account_relation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="uint" Nullable="false" />
+          <Property Name="AccountID" Type="uint" Nullable="false" />
+          <Property Name="LastModified" Type="timestamp" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_instrument_subscription">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="uint" Nullable="false" />
+          <Property Name="InstrumentTypeGroupID" Type="uint" />
+          <Property Name="LastModified" Type="timestamp" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_account_1">
+          <End Role="account_group" Type="myschemaModel.Store.account_group" Multiplicity="0..1" />
+          <End Role="account" Type="myschemaModel.Store.account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account_group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="account">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_account_group_1">
+          <End Role="organisation" Type="myschemaModel.Store.organisation" Multiplicity="0..1" />
+          <End Role="account_group" Type="myschemaModel.Store.account_group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organisation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="account_group">
+              <PropertyRef Name="OrganisationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupID">
+          <End Role="instrument_type_group" Type="myschemaModel.Store.instrument_type_group" Multiplicity="0..1" />
+          <End Role="instrument_type" Type="myschemaModel.Store.instrument_type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="instrument_type_group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="instrument_type">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_instrument_1">
+          <End Role="instrument_type" Type="myschemaModel.Store.instrument_type" Multiplicity="1" />
+          <End Role="instrument" Type="myschemaModel.Store.instrument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="instrument_type">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="instrument">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_instrument_2">
+          <End Role="currency" Type="myschemaModel.Store.currency" Multiplicity="0..1" />
+          <End Role="instrument" Type="myschemaModel.Store.instrument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="currency">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="instrument">
+              <PropertyRef Name="CurrencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_instrument_3">
+          <End Role="exchange" Type="myschemaModel.Store.exchange" Multiplicity="1" />
+          <End Role="instrument" Type="myschemaModel.Store.instrument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="exchange">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="instrument">
+              <PropertyRef Name="ExchangeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_limit_1">
+          <End Role="account" Type="myschemaModel.Store.account" Multiplicity="1" />
+          <End Role="limit" Type="myschemaModel.Store.limit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="limit">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_limit_2">
+          <End Role="instrument_type" Type="myschemaModel.Store.instrument_type" Multiplicity="1" />
+          <End Role="limit" Type="myschemaModel.Store.limit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="instrument_type">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="limit">
+              <PropertyRef Name="InstrumentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rating_1">
+          <End Role="account_group" Type="myschemaModel.Store.account_group" Multiplicity="0..1" />
+          <End Role="rating" Type="myschemaModel.Store.rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account_group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="rating">
+              <PropertyRef Name="AccountGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rating_2">
+          <End Role="instrument_type" Type="myschemaModel.Store.instrument_type" Multiplicity="0..1" />
+          <End Role="rating" Type="myschemaModel.Store.rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="instrument_type">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="rating">
+              <PropertyRef Name="InstrumentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_routing_rule_1">
+          <End Role="account_group" Type="myschemaModel.Store.account_group" Multiplicity="0..1" />
+          <End Role="routing_rule" Type="myschemaModel.Store.routing_rule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account_group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="routing_rule">
+              <PropertyRef Name="AccountGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_routing_rule_2">
+          <End Role="exchange" Type="myschemaModel.Store.exchange" Multiplicity="0..1" />
+          <End Role="routing_rule" Type="myschemaModel.Store.routing_rule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="exchange">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="routing_rule">
+              <PropertyRef Name="ExchangeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_account_relation_1">
+          <End Role="user" Type="myschemaModel.Store.user" Multiplicity="1" />
+          <End Role="user_account_relation" Type="myschemaModel.Store.user_account_relation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="user_account_relation">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_account_relation_2">
+          <End Role="account" Type="myschemaModel.Store.account" Multiplicity="1" />
+          <End Role="user_account_relation" Type="myschemaModel.Store.user_account_relation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="user_account_relation">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_instrument_subscription_1">
+          <End Role="user" Type="myschemaModel.Store.user" Multiplicity="1" />
+          <End Role="user_instrument_subscription" Type="myschemaModel.Store.user_instrument_subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="user_instrument_subscription">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_instrument_subscription_2">
+          <End Role="instrument_type_group" Type="myschemaModel.Store.instrument_type_group" Multiplicity="0..1" />
+          <End Role="user_instrument_subscription" Type="myschemaModel.Store.user_instrument_subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="instrument_type_group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="user_instrument_subscription">
+              <PropertyRef Name="InstrumentTypeGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="myschemaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="myschemaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="user" EntityType="myschemaModel.user" />
+          <EntitySet Name="account" EntityType="myschemaModel.account" />
+          <EntitySet Name="account_group" EntityType="myschemaModel.account_group" />
+          <EntitySet Name="currency" EntityType="myschemaModel.currency" />
+          <EntitySet Name="exchange" EntityType="myschemaModel.exchange" />
+          <EntitySet Name="instrument" EntityType="myschemaModel.instrument" />
+          <EntitySet Name="instrument_type" EntityType="myschemaModel.instrument_type" />
+          <EntitySet Name="instrument_type_group" EntityType="myschemaModel.instrument_type_group" />
+          <EntitySet Name="limit" EntityType="myschemaModel.limit" />
+          <EntitySet Name="organisation" EntityType="myschemaModel.organisation" />
+          <EntitySet Name="rating" EntityType="myschemaModel.rating" />
+          <EntitySet Name="routing_rule" EntityType="myschemaModel.routing_rule" />
+          <EntitySet Name="user_account_relation" EntityType="myschemaModel.user_account_relation" />
+          <EntitySet Name="user_instrument_subscription" EntityType="myschemaModel.user_instrument_subscription" />
+          <AssociationSet Name="FK_account_1" Association="myschemaModel.FK_account_1">
+            <End Role="account_group" EntitySet="account_group" />
+            <End Role="account" EntitySet="account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_limit_1" Association="myschemaModel.FK_limit_1">
+            <End Role="account" EntitySet="account" />
+            <End Role="limit" EntitySet="limit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_account_relation_2" Association="myschemaModel.FK_user_account_relation_2">
+            <End Role="account" EntitySet="account" />
+            <End Role="user_account_relation" EntitySet="user_account_relation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_account_group_1" Association="myschemaModel.FK_account_group_1">
+            <End Role="organisation" EntitySet="organisation" />
+            <End Role="account_group" EntitySet="account_group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rating_1" Association="myschemaModel.FK_rating_1">
+            <End Role="account_group" EntitySet="account_group" />
+            <End Role="rating" EntitySet="rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_routing_rule_1" Association="myschemaModel.FK_routing_rule_1">
+            <End Role="account_group" EntitySet="account_group" />
+            <End Role="routing_rule" EntitySet="routing_rule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_instrument_2" Association="myschemaModel.FK_instrument_2">
+            <End Role="currency" EntitySet="currency" />
+            <End Role="instrument" EntitySet="instrument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_instrument_3" Association="myschemaModel.FK_instrument_3">
+            <End Role="exchange" EntitySet="exchange" />
+            <End Role="instrument" EntitySet="instrument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_routing_rule_2" Association="myschemaModel.FK_routing_rule_2">
+            <End Role="exchange" EntitySet="exchange" />
+            <End Role="routing_rule" EntitySet="routing_rule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_instrument_1" Association="myschemaModel.FK_instrument_1">
+            <End Role="instrument_type" EntitySet="instrument_type" />
+            <End Role="instrument" EntitySet="instrument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupID" Association="myschemaModel.FK_GroupID">
+            <End Role="instrument_type_group" EntitySet="instrument_type_group" />
+            <End Role="instrument_type" EntitySet="instrument_type" />
+          </AssociationSet>
+          <AssociationSet Name="FK_limit_2" Association="myschemaModel.FK_limit_2">
+            <End Role="instrument_type" EntitySet="instrument_type" />
+            <End Role="limit" EntitySet="limit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rating_2" Association="myschemaModel.FK_rating_2">
+            <End Role="instrument_type" EntitySet="instrument_type" />
+            <End Role="rating" EntitySet="rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_instrument_subscription_2" Association="myschemaModel.FK_user_instrument_subscription_2">
+            <End Role="instrument_type_group" EntitySet="instrument_type_group" />
+            <End Role="user_instrument_subscription" EntitySet="user_instrument_subscription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_account_relation_1" Association="myschemaModel.FK_user_account_relation_1">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_account_relation" EntitySet="user_account_relation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_instrument_subscription_1" Association="myschemaModel.FK_user_instrument_subscription_1">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_instrument_subscription" EntitySet="user_instrument_subscription" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="48" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="48" Unicode="false" FixedLength="false" />
+          <Property Name="Enable" Type="Int16" Nullable="false" />
+          <Property Name="Block" Type="Int16" Nullable="false" />
+          <Property Name="DefaultAccountID" Type="Int64" />
+          <Property Name="LastModified" Type="DateTime" Nullable="false" />
+          <Property Name="Online" Type="Int16" />
+          <Property Name="ParentAccountID" Type="Int64" />
+          <NavigationProperty Name="user_account_relation" Relationship="myschemaModel.FK_user_account_relation_1" FromRole="user" ToRole="user_account_relation" />
+          <NavigationProperty Name="user_instrument_subscription" Relationship="myschemaModel.FK_user_instrument_subscription_1" FromRole="user" ToRole="user_instrument_subscription" />
+        </EntityType>
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="GroupID" />
+          <Property Type="Int64" Name="ParentID" />
+          <Property Type="Int64" Name="CurrencyID" />
+          <Property Type="String" Name="Account1" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AllocAccount" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ClearingAccount" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="SODNLV" Nullable="false" />
+          <Property Type="Decimal" Name="BeginBalance" />
+          <Property Type="Decimal" Name="Liquidity" Nullable="false" />
+          <Property Type="DateTime" Name="LastModified" Nullable="false" />
+          <Property Type="DateTime" Name="CreateTime" />
+          <Property Type="Int64" Name="TypeID" Nullable="false" />
+          <NavigationProperty Name="account_group" Relationship="myschemaModel.FK_account_1" FromRole="account" ToRole="account_group" />
+          <NavigationProperty Name="limit" Relationship="myschemaModel.FK_limit_1" FromRole="account" ToRole="limit" />
+          <NavigationProperty Name="user_account_relation" Relationship="myschemaModel.FK_user_account_relation_2" FromRole="account" ToRole="user_account_relation" />
+        </EntityType>
+        <EntityType Name="account_group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="GroupName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="OrganisationID" />
+          <Property Type="DateTime" Name="LastModified" Nullable="false" />
+          <Property Type="Int64" Name="ParentAccountID" />
+          <NavigationProperty Name="account" Relationship="myschemaModel.FK_account_1" FromRole="account_group" ToRole="account" />
+          <NavigationProperty Name="organisation" Relationship="myschemaModel.FK_account_group_1" FromRole="account_group" ToRole="organisation" />
+          <NavigationProperty Name="rating" Relationship="myschemaModel.FK_rating_1" FromRole="account_group" ToRole="rating" />
+          <NavigationProperty Name="routing_rule" Relationship="myschemaModel.FK_routing_rule_1" FromRole="account_group" ToRole="routing_rule" />
+        </EntityType>
+        <EntityType Name="currency">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Name" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="FxRate" />
+          <Property Type="DateTime" Name="LastModified" Nullable="false" />
+          <NavigationProperty Name="instrument" Relationship="myschemaModel.FK_instrument_2" FromRole="currency" ToRole="instrument" />
+        </EntityType>
+        <EntityType Name="exchange">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Name" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OrderTypes" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastModified" Nullable="false" />
+          <NavigationProperty Name="instrument" Relationship="myschemaModel.FK_instrument_3" FromRole="exchange" ToRole="instrument" />
+          <NavigationProperty Name="routing_rule" Relationship="myschemaModel.FK_routing_rule_2" FromRole="exchange" ToRole="routing_rule" />
+        </EntityType>
+        <EntityType Name="instrument">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Type="Int64" Name="TypeID" Nullable="false" />
+          <Property Type="Int64" Name="CurrencyID" />
+          <Property Type="Int64" Name="ExchangeID" Nullable="false" />
+          <Property Type="Int64" Name="DecimalPlace" Nullable="false" />
+          <Property Type="String" Name="MaturityDate" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="TickSize" />
+          <Property Type="Double" Name="TickValue" />
+          <Property Type="Double" Name="StrikePrice" />
+          <Property Type="String" Name="Symbol" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Currency" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IDSource" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SecurityID" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SecurityType" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SecurityExchange" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="Suspended" />
+          <Property Type="DateTime" Name="LastModified" Nullable="false" />
+          <Property Type="DateTime" Name="dateCreated" Nullable="false" />
+          <NavigationProperty Name="currency1" Relationship="myschemaModel.FK_instrument_2" FromRole="instrument" ToRole="currency" />
+          <NavigationProperty Name="exchange" Relationship="myschemaModel.FK_instrument_3" FromRole="instrument" ToRole="exchange" />
+          <NavigationProperty Name="instrument_type" Relationship="myschemaModel.FK_instrument_1" FromRole="instrument" ToRole="instrument_type" />
+        </EntityType>
+        <EntityType Name="instrument_type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="CurrencyID" Nullable="false" />
+          <Property Type="Int64" Name="ExchangeID" Nullable="false" />
+          <Property Type="Int64" Name="GroupID" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Symbol" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SecurityType" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OrderTypes" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SecurityExchange" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="ReferencePrice" />
+          <Property Type="DateTime" Name="LastModified" Nullable="false" />
+          <Property Type="Double" Name="TickSize" Nullable="false" />
+          <Property Type="Double" Name="TickValue" Nullable="false" />
+          <Property Type="Int64" Name="DecimalPlace" Nullable="false" />
+          <NavigationProperty Name="instrument" Relationship="myschemaModel.FK_instrument_1" FromRole="instrument_type" ToRole="instrument" />
+          <NavigationProperty Name="instrument_type_group" Relationship="myschemaModel.FK_GroupID" FromRole="instrument_type" ToRole="instrument_type_group" />
+          <NavigationProperty Name="limit" Relationship="myschemaModel.FK_limit_2" FromRole="instrument_type" ToRole="limit" />
+          <NavigationProperty Name="rating" Relationship="myschemaModel.FK_rating_2" FromRole="instrument_type" ToRole="rating" />
+        </EntityType>
+        <EntityType Name="instrument_type_group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastModified" Nullable="false" />
+          <NavigationProperty Name="instrument_type" Relationship="myschemaModel.FK_GroupID" FromRole="instrument_type_group" ToRole="instrument_type" />
+          <NavigationProperty Name="user_instrument_subscription" Relationship="myschemaModel.FK_user_instrument_subscription_2" FromRole="instrument_type_group" ToRole="user_instrument_subscription" />
+        </EntityType>
+        <EntityType Name="limit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="AccountID" Nullable="false" />
+          <Property Type="Int64" Name="InstrumentTypeID" Nullable="false" />
+          <Property Type="Int32" Name="MaxOrderSize" Nullable="false" />
+          <Property Type="Int32" Name="PositionLimit" Nullable="false" />
+          <Property Type="DateTime" Name="LastModified" Nullable="false" />
+          <NavigationProperty Name="account" Relationship="myschemaModel.FK_limit_1" FromRole="limit" ToRole="account" />
+          <NavigationProperty Name="instrument_type" Relationship="myschemaModel.FK_limit_2" FromRole="limit" ToRole="instrument_type" />
+        </EntityType>
+        <EntityType Name="organisation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CompanyName" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Country" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PostCode" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastModified" Nullable="false" />
+          <Property Type="Int64" Name="ParentOrgID" Nullable="false" />
+          <Property Type="Int64" Name="ParentAccountID" />
+          <NavigationProperty Name="account_group" Relationship="myschemaModel.FK_account_group_1" FromRole="organisation" ToRole="account_group" />
+        </EntityType>
+        <EntityType Name="rating">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="AccountGroupID" />
+          <Property Type="Int64" Name="InstrumentTypeID" />
+          <Property Type="Decimal" Name="MarginRatio" />
+          <Property Type="Decimal" Name="MarginAdjustment" />
+          <Property Type="Decimal" Name="CommissionRatio" />
+          <Property Type="Decimal" Name="CommissionAdjustment" />
+          <Property Type="DateTime" Name="LastModified" Nullable="false" />
+          <NavigationProperty Name="account_group" Relationship="myschemaModel.FK_rating_1" FromRole="rating" ToRole="account_group" />
+          <NavigationProperty Name="instrument_type" Relationship="myschemaModel.FK_rating_2" FromRole="rating" ToRole="instrument_type" />
+        </EntityType>
+        <EntityType Name="routing_rule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="RoutingID" />
+          <Property Type="Int64" Name="ExchangeID" />
+          <Property Type="Int32" Name="AccountGroupID" />
+          <Property Type="DateTime" Name="LastModified" Nullable="false" />
+          <NavigationProperty Name="account_group" Relationship="myschemaModel.FK_routing_rule_1" FromRole="routing_rule" ToRole="account_group" />
+          <NavigationProperty Name="exchange" Relationship="myschemaModel.FK_routing_rule_2" FromRole="routing_rule" ToRole="exchange" />
+        </EntityType>
+        <EntityType Name="user_account_relation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="UserID" Nullable="false" />
+          <Property Type="Int64" Name="AccountID" Nullable="false" />
+          <Property Type="DateTime" Name="LastModified" Nullable="false" />
+          <NavigationProperty Name="account" Relationship="myschemaModel.FK_user_account_relation_2" FromRole="user_account_relation" ToRole="account" />
+          <NavigationProperty Name="user" Relationship="myschemaModel.FK_user_account_relation_1" FromRole="user_account_relation" ToRole="user" />
+        </EntityType>
+        <EntityType Name="user_instrument_subscription">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="UserID" Nullable="false" />
+          <Property Type="Int64" Name="InstrumentTypeGroupID" />
+          <Property Type="DateTime" Name="LastModified" Nullable="false" />
+          <NavigationProperty Name="instrument_type_group" Relationship="myschemaModel.FK_user_instrument_subscription_2" FromRole="user_instrument_subscription" ToRole="instrument_type_group" />
+          <NavigationProperty Name="user" Relationship="myschemaModel.FK_user_instrument_subscription_1" FromRole="user_instrument_subscription" ToRole="user" />
+        </EntityType>
+        <Association Name="FK_account_1">
+          <End Type="myschemaModel.account_group" Role="account_group" Multiplicity="0..1" />
+          <End Type="myschemaModel.account" Role="account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account_group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="account">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_limit_1">
+          <End Type="myschemaModel.account" Role="account" Multiplicity="1" />
+          <End Type="myschemaModel.limit" Role="limit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="limit">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_account_relation_2">
+          <End Type="myschemaModel.account" Role="account" Multiplicity="1" />
+          <End Type="myschemaModel.user_account_relation" Role="user_account_relation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="user_account_relation">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_account_group_1">
+          <End Type="myschemaModel.organisation" Role="organisation" Multiplicity="0..1" />
+          <End Type="myschemaModel.account_group" Role="account_group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organisation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="account_group">
+              <PropertyRef Name="OrganisationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rating_1">
+          <End Type="myschemaModel.account_group" Role="account_group" Multiplicity="0..1" />
+          <End Type="myschemaModel.rating" Role="rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account_group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="rating">
+              <PropertyRef Name="AccountGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_routing_rule_1">
+          <End Type="myschemaModel.account_group" Role="account_group" Multiplicity="0..1" />
+          <End Type="myschemaModel.routing_rule" Role="routing_rule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account_group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="routing_rule">
+              <PropertyRef Name="AccountGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_instrument_2">
+          <End Type="myschemaModel.currency" Role="currency" Multiplicity="0..1" />
+          <End Type="myschemaModel.instrument" Role="instrument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="currency">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="instrument">
+              <PropertyRef Name="CurrencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_instrument_3">
+          <End Type="myschemaModel.exchange" Role="exchange" Multiplicity="1" />
+          <End Type="myschemaModel.instrument" Role="instrument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="exchange">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="instrument">
+              <PropertyRef Name="ExchangeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_routing_rule_2">
+          <End Type="myschemaModel.exchange" Role="exchange" Multiplicity="0..1" />
+          <End Type="myschemaModel.routing_rule" Role="routing_rule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="exchange">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="routing_rule">
+              <PropertyRef Name="ExchangeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_instrument_1">
+          <End Type="myschemaModel.instrument_type" Role="instrument_type" Multiplicity="1" />
+          <End Type="myschemaModel.instrument" Role="instrument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="instrument_type">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="instrument">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupID">
+          <End Type="myschemaModel.instrument_type_group" Role="instrument_type_group" Multiplicity="0..1" />
+          <End Type="myschemaModel.instrument_type" Role="instrument_type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="instrument_type_group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="instrument_type">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_limit_2">
+          <End Type="myschemaModel.instrument_type" Role="instrument_type" Multiplicity="1" />
+          <End Type="myschemaModel.limit" Role="limit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="instrument_type">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="limit">
+              <PropertyRef Name="InstrumentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rating_2">
+          <End Type="myschemaModel.instrument_type" Role="instrument_type" Multiplicity="0..1" />
+          <End Type="myschemaModel.rating" Role="rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="instrument_type">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="rating">
+              <PropertyRef Name="InstrumentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_instrument_subscription_2">
+          <End Type="myschemaModel.instrument_type_group" Role="instrument_type_group" Multiplicity="0..1" />
+          <End Type="myschemaModel.user_instrument_subscription" Role="user_instrument_subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="instrument_type_group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="user_instrument_subscription">
+              <PropertyRef Name="InstrumentTypeGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_account_relation_1">
+          <End Type="myschemaModel.user" Role="user" Multiplicity="1" />
+          <End Type="myschemaModel.user_account_relation" Role="user_account_relation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="user_account_relation">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_instrument_subscription_1">
+          <End Type="myschemaModel.user" Role="user" Multiplicity="1" />
+          <End Type="myschemaModel.user_instrument_subscription" Role="user_instrument_subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="user_instrument_subscription">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="myschemaModelStoreContainer" CdmEntityContainer="myschemaEntities">
+          <EntitySetMapping Name="user"><EntityTypeMapping TypeName="myschemaModel.user"><MappingFragment StoreEntitySet="user">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="Enable" ColumnName="Enable" />
+            <ScalarProperty Name="Block" ColumnName="Block" />
+            <ScalarProperty Name="DefaultAccountID" ColumnName="DefaultAccountID" />
+            <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+            <ScalarProperty Name="Online" ColumnName="Online" />
+            <ScalarProperty Name="ParentAccountID" ColumnName="ParentAccountID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="account">
+            <EntityTypeMapping TypeName="myschemaModel.account">
+              <MappingFragment StoreEntitySet="account">
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="Liquidity" ColumnName="Liquidity" />
+                <ScalarProperty Name="BeginBalance" ColumnName="BeginBalance" />
+                <ScalarProperty Name="SODNLV" ColumnName="SODNLV" />
+                <ScalarProperty Name="ClearingAccount" ColumnName="ClearingAccount" />
+                <ScalarProperty Name="AllocAccount" ColumnName="AllocAccount" />
+                <ScalarProperty Name="Account1" ColumnName="Account" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="account_group">
+            <EntityTypeMapping TypeName="myschemaModel.account_group">
+              <MappingFragment StoreEntitySet="account_group">
+                <ScalarProperty Name="ParentAccountID" ColumnName="ParentAccountID" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="OrganisationID" ColumnName="OrganisationID" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="currency">
+            <EntityTypeMapping TypeName="myschemaModel.currency">
+              <MappingFragment StoreEntitySet="currency">
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="FxRate" ColumnName="FxRate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="exchange">
+            <EntityTypeMapping TypeName="myschemaModel.exchange">
+              <MappingFragment StoreEntitySet="exchange">
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="OrderTypes" ColumnName="OrderTypes" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="instrument">
+            <EntityTypeMapping TypeName="myschemaModel.instrument">
+              <MappingFragment StoreEntitySet="instrument">
+                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="Suspended" ColumnName="Suspended" />
+                <ScalarProperty Name="SecurityExchange" ColumnName="SecurityExchange" />
+                <ScalarProperty Name="SecurityType" ColumnName="SecurityType" />
+                <ScalarProperty Name="SecurityID" ColumnName="SecurityID" />
+                <ScalarProperty Name="IDSource" ColumnName="IDSource" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="StrikePrice" ColumnName="StrikePrice" />
+                <ScalarProperty Name="TickValue" ColumnName="TickValue" />
+                <ScalarProperty Name="TickSize" ColumnName="TickSize" />
+                <ScalarProperty Name="MaturityDate" ColumnName="MaturityDate" />
+                <ScalarProperty Name="DecimalPlace" ColumnName="DecimalPlace" />
+                <ScalarProperty Name="ExchangeID" ColumnName="ExchangeID" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="instrument_type">
+            <EntityTypeMapping TypeName="myschemaModel.instrument_type">
+              <MappingFragment StoreEntitySet="instrument_type">
+                <ScalarProperty Name="DecimalPlace" ColumnName="DecimalPlace" />
+                <ScalarProperty Name="TickValue" ColumnName="TickValue" />
+                <ScalarProperty Name="TickSize" ColumnName="TickSize" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="ReferencePrice" ColumnName="ReferencePrice" />
+                <ScalarProperty Name="SecurityExchange" ColumnName="SecurityExchange" />
+                <ScalarProperty Name="OrderTypes" ColumnName="OrderTypes" />
+                <ScalarProperty Name="SecurityType" ColumnName="SecurityType" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="ExchangeID" ColumnName="ExchangeID" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="instrument_type_group">
+            <EntityTypeMapping TypeName="myschemaModel.instrument_type_group">
+              <MappingFragment StoreEntitySet="instrument_type_group">
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="limit">
+            <EntityTypeMapping TypeName="myschemaModel.limit">
+              <MappingFragment StoreEntitySet="limit">
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="PositionLimit" ColumnName="PositionLimit" />
+                <ScalarProperty Name="MaxOrderSize" ColumnName="MaxOrderSize" />
+                <ScalarProperty Name="InstrumentTypeID" ColumnName="InstrumentTypeID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="organisation">
+            <EntityTypeMapping TypeName="myschemaModel.organisation">
+              <MappingFragment StoreEntitySet="organisation">
+                <ScalarProperty Name="ParentAccountID" ColumnName="ParentAccountID" />
+                <ScalarProperty Name="ParentOrgID" ColumnName="ParentOrgID" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rating">
+            <EntityTypeMapping TypeName="myschemaModel.rating">
+              <MappingFragment StoreEntitySet="rating">
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="CommissionAdjustment" ColumnName="CommissionAdjustment" />
+                <ScalarProperty Name="CommissionRatio" ColumnName="CommissionRatio" />
+                <ScalarProperty Name="MarginAdjustment" ColumnName="MarginAdjustment" />
+                <ScalarProperty Name="MarginRatio" ColumnName="MarginRatio" />
+                <ScalarProperty Name="InstrumentTypeID" ColumnName="InstrumentTypeID" />
+                <ScalarProperty Name="AccountGroupID" ColumnName="AccountGroupID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="routing_rule">
+            <EntityTypeMapping TypeName="myschemaModel.routing_rule">
+              <MappingFragment StoreEntitySet="routing_rule">
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="AccountGroupID" ColumnName="AccountGroupID" />
+                <ScalarProperty Name="ExchangeID" ColumnName="ExchangeID" />
+                <ScalarProperty Name="RoutingID" ColumnName="RoutingID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_account_relation">
+            <EntityTypeMapping TypeName="myschemaModel.user_account_relation">
+              <MappingFragment StoreEntitySet="user_account_relation">
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_instrument_subscription">
+            <EntityTypeMapping TypeName="myschemaModel.user_instrument_subscription">
+              <MappingFragment StoreEntitySet="user_instrument_subscription">
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="InstrumentTypeGroupID" ColumnName="InstrumentTypeGroupID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DBManagerMDIModel">
+        <EntityTypeShape EntityType="myschemaModel.user" Width="1.5" PointX="0.75" PointY="0.75" Height="2.7341113281249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="myschemaModel.account" Width="1.5" PointX="8.625" PointY="15" Height="4.2622688802083335" />
+        <EntityTypeShape EntityType="myschemaModel.account_group" Width="1.5" PointX="8.625" PointY="0.75" Height="2.7341113281249996" />
+        <EntityTypeShape EntityType="myschemaModel.currency" Width="1.5" PointX="5.625" PointY="14.5" Height="2.1610522460937514" />
+        <EntityTypeShape EntityType="myschemaModel.exchange" Width="1.5" PointX="5.625" PointY="17.375" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="myschemaModel.instrument" Width="1.5" PointX="7.875" PointY="8.5" Height="5.2173673502604174" />
+        <EntityTypeShape EntityType="myschemaModel.instrument_type" Width="1.5" PointX="5.625" PointY="8.875" Height="4.4532885742187531" />
+        <EntityTypeShape EntityType="myschemaModel.instrument_type_group" Width="1.5" PointX="3.375" PointY="10.125" Height="1.9700325520833317" />
+        <EntityTypeShape EntityType="myschemaModel.limit" Width="1.5" PointX="10.875" PointY="9.875" Height="2.5430916341145817" />
+        <EntityTypeShape EntityType="myschemaModel.organisation" Width="1.5" PointX="6.375" PointY="1" Height="3.1161507161458353" />
+        <EntityTypeShape EntityType="myschemaModel.rating" Width="1.5" PointX="10.875" PointY="5.625" Height="2.9251310221354174" />
+        <EntityTypeShape EntityType="myschemaModel.routing_rule" Width="1.5" PointX="13.875" PointY="6.125" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="myschemaModel.user_account_relation" Width="1.5" PointX="13.875" PointY="9.875" Height="2.161052246093746" />
+        <EntityTypeShape EntityType="myschemaModel.user_instrument_subscription" Width="1.5" PointX="5.625" PointY="5.375" Height="2.161052246093746" />
+        <AssociationConnector Association="myschemaModel.FK_account_1" >
+          <ConnectorPoint PointX="9.78125" PointY="3.4841113281249996" />
+          <ConnectorPoint PointX="9.78125" PointY="15" />
+        </AssociationConnector>
+        <AssociationConnector Association="myschemaModel.FK_limit_1" >
+          <ConnectorPoint PointX="10.125" PointY="17.131134440104166" />
+          <ConnectorPoint PointX="11.625" PointY="17.131134440104166" />
+          <ConnectorPoint PointX="11.625" PointY="12.418091634114582" />
+        </AssociationConnector>
+        <AssociationConnector Association="myschemaModel.FK_user_account_relation_2" >
+          <ConnectorPoint PointX="10.125" PointY="16.03431472005208" />
+          <ConnectorPoint PointX="11.541666666666666" PointY="16.03431472005208" />
+          <ConnectorPoint PointX="11.708333333333334" PointY="16.03431472005208" />
+          <ConnectorPoint PointX="14.625" PointY="16.03431472005208" />
+          <ConnectorPoint PointX="14.625" PointY="12.036052246093746" />
+        </AssociationConnector>
+        <AssociationConnector Association="myschemaModel.FK_account_group_1" >
+          <ConnectorPoint PointX="7.875" PointY="2.2420556640625" />
+          <ConnectorPoint PointX="8.625" PointY="2.2420556640625" />
+        </AssociationConnector>
+        <AssociationConnector Association="myschemaModel.FK_rating_1" >
+          <ConnectorPoint PointX="9.9843775" PointY="3.4841113281249996" />
+          <ConnectorPoint PointX="9.9843775" PointY="7.03125" />
+          <ConnectorPoint PointX="10.875" PointY="7.03125" />
+        </AssociationConnector>
+        <AssociationConnector Association="myschemaModel.FK_routing_rule_1" >
+          <ConnectorPoint PointX="10.125" PointY="2.1170556640625" />
+          <ConnectorPoint PointX="14.625" PointY="2.1170556640625" />
+          <ConnectorPoint PointX="14.625" PointY="6.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="myschemaModel.FK_instrument_2" >
+          <ConnectorPoint PointX="7.125" PointY="14.71875" />
+          <ConnectorPoint PointX="7.9322891666666662" PointY="14.71875" />
+          <ConnectorPoint PointX="8.0989558333333331" PointY="14.71875" />
+          <ConnectorPoint PointX="8.21875" PointY="14.71875" />
+          <ConnectorPoint PointX="8.21875" PointY="13.717367350260417" />
+        </AssociationConnector>
+        <AssociationConnector Association="myschemaModel.FK_instrument_3" >
+          <ConnectorPoint PointX="7.125" PointY="19.52592041015625" />
+          <ConnectorPoint PointX="8.0156225" PointY="19.52592041015625" />
+          <ConnectorPoint PointX="8.0156225" PointY="13.717367350260417" />
+        </AssociationConnector>
+        <AssociationConnector Association="myschemaModel.FK_routing_rule_2" >
+          <ConnectorPoint PointX="7.125" PointY="18.419208205078125" />
+          <ConnectorPoint PointX="7.9322891666666662" PointY="18.419208205078125" />
+          <ConnectorPoint PointX="8.0989558333333331" PointY="18.419208205078125" />
+          <ConnectorPoint PointX="8.375" PointY="18.419208205078125" />
+          <ConnectorPoint PointX="8.375" PointY="14.875" />
+          <ConnectorPoint PointX="9.6979166666666661" PointY="14.875" />
+          <ConnectorPoint PointX="9.8645833333333339" PointY="14.875" />
+          <ConnectorPoint PointX="11.541666666666666" PointY="14.875" />
+          <ConnectorPoint PointX="11.708333333333334" PointY="14.875" />
+          <ConnectorPoint PointX="13.625" PointY="14.875" />
+          <ConnectorPoint PointX="13.625" PointY="8.8520719401041674" />
+          <ConnectorPoint PointX="14.625" PointY="8.8520719401041674" />
+          <ConnectorPoint PointX="14.625" PointY="8.4770719401041674" />
+        </AssociationConnector>
+        <AssociationConnector Association="myschemaModel.FK_instrument_1" >
+          <ConnectorPoint PointX="7.125" PointY="11.101644287109377" />
+          <ConnectorPoint PointX="7.875" PointY="11.101644287109377" />
+        </AssociationConnector>
+        <AssociationConnector Association="myschemaModel.FK_GroupID" >
+          <ConnectorPoint PointX="4.875" PointY="11.110016276041666" />
+          <ConnectorPoint PointX="5.625" PointY="11.110016276041666" />
+        </AssociationConnector>
+        <AssociationConnector Association="myschemaModel.FK_limit_2" >
+          <ConnectorPoint PointX="6.375" PointY="13.328288574218753" />
+          <ConnectorPoint PointX="6.375" PointY="13.967367350260417" />
+          <ConnectorPoint PointX="7.9322891666666662" PointY="13.967367350260417" />
+          <ConnectorPoint PointX="8.0989558333333331" PointY="13.967367350260417" />
+          <ConnectorPoint PointX="8.1354166666666661" PointY="13.967367350260417" />
+          <ConnectorPoint PointX="8.3020833333333339" PointY="13.967367350260417" />
+          <ConnectorPoint PointX="9.6979166666666661" PointY="13.967367350260417" />
+          <ConnectorPoint PointX="9.8645833333333339" PointY="13.967367350260417" />
+          <ConnectorPoint PointX="10.5" PointY="13.967367350260417" />
+          <ConnectorPoint PointX="10.5" PointY="11.146545817057291" />
+          <ConnectorPoint PointX="10.875" PointY="11.146545817057291" />
+        </AssociationConnector>
+        <AssociationConnector Association="myschemaModel.FK_rating_2" >
+          <ConnectorPoint PointX="6.375" PointY="8.875" />
+          <ConnectorPoint PointX="6.375" PointY="7.786052246093746" />
+          <ConnectorPoint PointX="7.375" PointY="7.786052246093746" />
+          <ConnectorPoint PointX="7.375" PointY="7.7656275000000008" />
+          <ConnectorPoint PointX="9.6979166666666661" PointY="7.7656275" />
+          <ConnectorPoint PointX="9.8645833333333339" PointY="7.7656275000000008" />
+          <ConnectorPoint PointX="10.875" PointY="7.7656275000000008" />
+        </AssociationConnector>
+        <AssociationConnector Association="myschemaModel.FK_user_instrument_subscription_2" >
+          <ConnectorPoint PointX="4.125" PointY="10.125" />
+          <ConnectorPoint PointX="4.125" PointY="6.455526123046873" />
+          <ConnectorPoint PointX="5.625" PointY="6.455526123046873" />
+        </AssociationConnector>
+        <AssociationConnector Association="myschemaModel.FK_user_account_relation_1" >
+          <ConnectorPoint PointX="2.25" PointY="2.3080753580729167" />
+          <ConnectorPoint PointX="6.125" PointY="2.3080753580729167" />
+          <ConnectorPoint PointX="6.125" PointY="4.3661507161458353" />
+          <ConnectorPoint PointX="9.6979166666666661" PointY="4.3661507161458344" />
+          <ConnectorPoint PointX="9.8645833333333339" PointY="4.3661507161458353" />
+          <ConnectorPoint PointX="9.9010441666666669" PointY="4.3661507161458344" />
+          <ConnectorPoint PointX="10.067710833333335" PointY="4.3661507161458353" />
+          <ConnectorPoint PointX="13.375" PointY="4.3661507161458353" />
+          <ConnectorPoint PointX="13.375" PointY="9.5" />
+          <ConnectorPoint PointX="13.541666666666666" PointY="9.5" />
+          <ConnectorPoint PointX="13.708333333333334" PointY="9.5" />
+          <ConnectorPoint PointX="14.625" PointY="9.5" />
+          <ConnectorPoint PointX="14.625" PointY="9.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="myschemaModel.FK_user_instrument_subscription_1" >
+          <ConnectorPoint PointX="1.5" PointY="3.8661507161458331" />
+          <ConnectorPoint PointX="1.5" PointY="5.8840105615234357" />
+          <ConnectorPoint PointX="5.625" PointY="5.8840105615234357" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
